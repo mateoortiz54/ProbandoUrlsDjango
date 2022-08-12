@@ -1,0 +1,21 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Pagina HTML</title>
+    </head>
+    <body>
+        <p>Buenos dias, Como se encuentra? yo {{estadoAnimo}}        
+        </p>
+        <h1>Sabia usted que la hora actual es: {{fecha}}, ahora separado: Dia: {{fecha.day}} -- Mes: {{fecha.month}} -- year: {{fecha.year}}</h1>
+        <ul>
+        {% for dia in diasSemana %}
+            {% if dia == "Lunes" %}
+                <li style="color: red;">un dia de la semana es: {{dia}}</li>
+            {% else %}
+                <li style="color: blue;">un dia de la semana es: {{dia}}</li>
+            {% endif %}
+            
+        {%  endfor  %}
+        </ul>
+    </body>
+</html>

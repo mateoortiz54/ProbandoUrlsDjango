@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from projectRUN.views import bienvenido, bienvenidoRojo, calcularEdad, obtenerMomentoActual, miPrimeraPlantilla, miPrimeraPlantillaParametros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('project/', include('projectRUN.urls')),
+    path('project/', include('projectRUN.urls')), #esto no se que hace
+    path('bienvenida/', bienvenido),
+    path('bienvenidoRojo/', bienvenidoRojo),
+    path('tuedad/<int:edad>', calcularEdad),
+    path('horaactual/', obtenerMomentoActual), #hora actual
+    path('miPrimeraPlantilla/', miPrimeraPlantilla), 
+    path('miPrimeraPlantillaParametros/', miPrimeraPlantillaParametros), 
     
 ]
