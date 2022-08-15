@@ -110,18 +110,10 @@ class Ventas(models.Model):
     id_venta = models.IntegerField(primary_key=True)
     pedido = models.ForeignKey(Pedidos, on_delete=models.DO_NOTHING)
     envio = models.ForeignKey(Envios, on_delete=models.DO_NOTHING)
-    fecha = models.DateTimeField(default='2000-01-01')
+    fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.fecha
-
-class Historial():
-    id_historial = models.IntegerField()
-    venta = models.ForeignKey(Ventas, on_delete=models.DO_NOTHING)
-    pago = models.ForeignKey(Ventas, on_delete=models.DO_NOTHING)
-
-    def __str__(self):
-        return "Historial"
+        return "Ventas"
 
 class MediosDePagos(models.Model):
     id_medio_pago = models.IntegerField(primary_key=True)
@@ -138,6 +130,14 @@ class Pagos(models.Model):
 
     def __str__(self):
         return self.fecha_pagos
+
+class Historial(models.Model):
+    id_historial = models.IntegerField(primary_key=True)
+    venta = models.ForeignKey(Ventas, on_delete=models.DO_NOTHING)
+    pago = models.ForeignKey(Pagos, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return "Historial"
 
 """          
 """
